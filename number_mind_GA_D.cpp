@@ -27,7 +27,7 @@ void geneticAlgorithm(const int&, vector<individual>&, const vector<individual>&
 
 int main()
 {
-    /*auto start = chrono::high_resolution_clock::now();*/
+    auto start = chrono::high_resolution_clock::now();
 
     vector<individual> guesses;
     readInput(guesses);
@@ -40,9 +40,9 @@ int main()
     initPop(populationSize, guesses, pN, population);//population generation
     geneticAlgorithm(maxGenerations, population, guesses, pN, mutationRate);
 
-    /*auto end = chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
-    cout << endl << duration.count();*/
+    cout << endl << duration.count();
 }
 
 void geneticAlgorithm(const int& maxGenerations, vector<individual>& population, const vector<individual>& guesses, const vector<vector<int>>& pN, const double mutationRate)
@@ -88,7 +88,7 @@ void geneticAlgorithm(const int& maxGenerations, vector<individual>& population,
             {
                 if(randomDouble < individualProbability[j])
                 {
-                    copy(begin(population[0].num), end(population[0].num), begin(parentOne));
+                    copy(begin(population[j].num), end(population[j].num), begin(parentOne));
                     break;
                 }
             }
